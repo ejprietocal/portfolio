@@ -1,0 +1,91 @@
+<header
+  class="sticky top-0 bg-indigo-950"
+  appResizeObserver
+  (sizeChanged)="onSizeChange($event)"
+>
+  <nav class="flex h-16 items-center justify-between shadow-sm sm:px-24">
+    <button
+      id="menu-button"
+      (click)="toggleMenu()"
+      class="absolute left-2 cursor-pointer sm:hidden"
+    >
+      <svg
+        width="40px"
+        height="40px"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M4 6H20M4 12H20M4 18H20"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </g>
+      </svg>
+    </button>
+    <h1
+      class="mx-auto bg-gradient-to-r from-[#ff5d50] to-[#d31166] bg-clip-text text-2xl font-black text-transparent sm:mx-0"
+    >
+      &lt; Eider Prieto /&gt;
+    </h1>
+    <ul
+      [ngClass]="{
+        flex: menuOpen || isClosing || screenSize >= 640,
+        'animate-slide-in': menuOpen && !isClosing && screenSize < 640,
+        'animate-slide-out': isClosing && screenSize < 640,
+        hidden: !menuOpen && !isClosing,
+      }"
+      class="absolute top-0 h-dvh w-dvw flex-col justify-around bg-indigo-950 text-center text-2xl font-bold duration-500 sm:static sm:flex sm:h-auto sm:w-1/2 sm:flex-row sm:justify-between sm:bg-transparent sm:text-left sm:text-sm"
+    >
+      <li class="cursor-pointer" (click)="toggleMenu()">
+        <a href="#about-me">Sobre mi</a>
+      </li>
+      <li class="cursor-pointer" (click)="toggleMenu()">
+        <a href="#projects">Proyectos</a>
+      </li>
+      <li class="cursor-pointer" (click)="toggleMenu()">
+        <a href="#reviews">Reseñas</a>
+      </li>
+      <li class="sm:hidden">
+        <button class="cursor-pointer" (click)="toggleMenu()">
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <g id="Menu / Close_LG">
+                <path
+                  id="Vector"
+                  d="M21 21L12 12M12 12L3 3M12 12L21.0001 3M12 12L3 21.0001"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </g>
+            </g>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>

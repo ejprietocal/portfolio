@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-slide-in: slice-in .5s ease-in-out;
+  --animate-slide-out: slice-out .5s ease-in-out;
+
+  @keyframes slice-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slice-out {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
